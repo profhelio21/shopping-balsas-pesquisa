@@ -1,0 +1,14 @@
+# Site estático + 1 função (proxy da Groq). Sem build. Publica só a pasta "public".
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# Sempre busca a versão nova do HTML (evita ficar preso em cache depois de atualizar)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "same-origin"
+    X-Robots-Tag = "noindex, nofollow"
